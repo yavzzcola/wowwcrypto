@@ -1,0 +1,253 @@
+/* Matte Futuristic Theme Animations */
+
+@keyframes matteGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(0, 255, 255, 0.1),
+      0 0 40px rgba(0, 255, 255, 0.05);
+    filter: saturate(0.9);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(0, 255, 255, 0.15),
+      0 0 60px rgba(0, 255, 255, 0.08);
+    filter: saturate(1);
+  }
+}
+
+@keyframes purpleGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(153, 51, 153, 0.1),
+      0 0 40px rgba(153, 51, 153, 0.05);
+    filter: saturate(0.9);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(153, 51, 153, 0.15),
+      0 0 60px rgba(153, 51, 153, 0.08);
+    filter: saturate(1);
+  }
+}
+
+@keyframes geometricFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translate(10px, -15px) rotate(120deg) scale(1.05);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translate(-8px, 8px) rotate(240deg) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+@keyframes dataStream {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    background-size: 20px 20px;
+    opacity: 0.3;
+  }
+  50% {
+    background-size: 25px 25px;
+    opacity: 0.5;
+  }
+}
+
+/* Enhanced blob animation for smoother movement */
+@keyframes enhancedBlob {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1) rotate(90deg);
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    transform: translate(40px, 20px) scale(0.9) rotate(180deg);
+    border-radius: 50% 40% 50% 60% / 30% 50% 60% 40%;
+  }
+  75% {
+    transform: translate(-15px, 35px) scale(1.05) rotate(270deg);
+    border-radius: 60% 30% 40% 50% / 60% 40% 50% 30%;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(360deg);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+/* Utility classes */
+.animate-matte-glow {
+  animation: matteGlow 3s ease-in-out infinite;
+}
+
+.animate-purple-glow {
+  animation: purpleGlow 3s ease-in-out infinite;
+}
+
+.animate-geometric-float {
+  animation: geometricFloat 8s ease-in-out infinite;
+}
+
+.animate-data-stream {
+  animation: dataStream 4s linear infinite;
+}
+
+.animate-grid-pulse {
+  animation: gridPulse 4s ease-in-out infinite;
+}
+
+.animate-enhanced-blob {
+  animation: enhancedBlob 12s ease-in-out infinite;
+}
+
+/* Animation delay utilities */
+.animation-delay-75 { animation-delay: 75ms; }
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-150 { animation-delay: 150ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+.animation-delay-1000 { animation-delay: 1000ms; }
+.animation-delay-2000 { animation-delay: 2000ms; }
+.animation-delay-4000 { animation-delay: 4000ms; }
+.animation-delay-6000 { animation-delay: 6000ms; }
+
+/* Blob animations with mix-blend-mode support */
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-blob.animation-delay-2000 {
+  animation: blob 7s infinite;
+  animation-delay: 2s;
+}
+
+.animate-blob.animation-delay-4000 {
+  animation: blob 7s infinite;
+  animation-delay: 4s;
+}
+
+.animate-blob.animation-delay-6000 {
+  animation: blob 7s infinite;
+  animation-delay: 6s;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -50px) scale(1.1);
+    filter: brightness(1.2) hue-rotate(90deg);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+    filter: brightness(0.8) hue-rotate(180deg);
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(1.05);
+    filter: brightness(1.1) hue-rotate(270deg);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    filter: brightness(1) hue-rotate(360deg);
+  }
+}
+
+/* Enhanced hover effects */
+.hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Glowing borders */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  background: linear-gradient(45deg, rgba(16, 185, 129, 0.5), rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5));
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  animation: glow-rotate 2s linear infinite;
+}
+
+@keyframes glow-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background patterns */
+.bg-pattern-dots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-pattern-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Loading shimmer effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Sliding ICO Badge Animation */
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-right {
+  animation: slideRight 8s linear infinite;
+}
