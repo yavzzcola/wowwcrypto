@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check": "npm run type-check && npm run lint",
+    "type-check": "tsc --noEmit",
+    "pre-build": "npm run check && npm run build"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.6",
