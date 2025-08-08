@@ -5,8 +5,16 @@ import { getDatabase } from '@/lib/database';
 import { verifyToken } from '@/lib/auth';
 import { RowDataPacket } from 'mysql2';
 
-export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
+    const tokenData = await verifyToken(request);
+    if (!tokenData.success) {
+      return NextResponse.json({ success: false, message: tokenData.message }, { status: 401 });
+    }
+    if (tokenData.data?.role !== 'admin') {
+      return NextResponse.json({ success: false, message: 'Admin access required' }, { status: 403 });
+    }
+
     const resolvedParams = await params;
     const db = getDatabase();
     const [rows] = await db.execute<RowDataPacket[]>(

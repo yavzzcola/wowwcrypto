@@ -66,11 +66,11 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    // Set cookie
+    // Set secure cookie
     response.cookies.set('token', token, {
-      httpOnly: false,
-      secure: false,
-      sameSite: 'lax',
+      httpOnly: true,   // Prevent XSS attacks
+      secure: process.env.NODE_ENV === 'production', // HTTPS in production
+      sameSite: 'strict', // CSRF protection
       path: '/',
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });

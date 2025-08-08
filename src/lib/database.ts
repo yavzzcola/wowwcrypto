@@ -30,7 +30,7 @@ export async function initializeDatabase() {
         id INT PRIMARY KEY AUTO_INCREMENT,
         username VARCHAR(255) NOT NULL UNIQUE,
         email VARCHAR(255) NOT NULL UNIQUE,
-        password_hash VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
         balance DECIMAL(10, 2) DEFAULT 0.00,
         referral_code VARCHAR(255) UNIQUE,
         referrer_id INT,
