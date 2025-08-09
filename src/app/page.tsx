@@ -331,7 +331,7 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-xl text-gray-200 mb-12 max-w-4xl mx-auto font-medium leading-relaxed">
-                Don't miss your chance to join the revolution at <span className="text-cyan-300 font-black">EXCLUSIVE EARLY-BIRD PRICES</span>
+                Don&apos;t miss your chance to join the revolution at <span className="text-cyan-300 font-black">EXCLUSIVE EARLY-BIRD PRICES</span>
               </p>
             </div>
           

@@ -17,7 +17,7 @@ export default function AdminCounterPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [currentSettings, setCurrentSettings] = useState<CounterSettings | null>(null);
+  const [, setCurrentSettings] = useState<CounterSettings | null>(null);
   const [stageName, setStageName] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');

@@ -4,13 +4,7 @@ import { verifyToken } from '@/lib/auth';
 import { coinpayments } from '@/lib/coinpayments';
 import { ApiResponse } from '@/types';
 
-interface RouteParams {
-  params: {
-    id: string;
-  };
-}
-
-export async function POST(request: NextRequest, { params }: RouteParams) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const tokenData = await verifyToken(request);
     if (!tokenData.success) {
@@ -27,7 +21,8 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       }, { status: 403 });
     }
 
-    const withdrawalId = parseInt(params.id);
+    const resolvedParams = await params;
+    const withdrawalId = parseInt(resolvedParams.id);
 
     if (isNaN(withdrawalId)) {
       return NextResponse.json<ApiResponse>({

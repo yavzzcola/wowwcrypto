@@ -14,6 +14,14 @@ interface User {
   role: string;
 }
 
+interface WithdrawalItem {
+  id: number;
+  amount: number;
+  address: string;
+  status: string;
+  date: string;
+}
+
 export default function WithdrawPage() {
   const [user, setUser] = useState<User | null>(null);
   const [coinSymbol, setCoinSymbol] = useState('ABC');
@@ -24,7 +32,7 @@ export default function WithdrawPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isLoadingHistory, setIsLoadingHistory] = useState(true);
-  const [withdrawHistory, setWithdrawHistory] = useState([]);
+  const [withdrawHistory, setWithdrawHistory] = useState<WithdrawalItem[]>([]);
   const [notification, setNotification] = useState({ show: false, message: '', type: 'info' as 'success' | 'error' | 'warning' | 'info' });
   const router = useRouter();
 

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AdminSidebar from '@/components/AdminSidebar';
+import { DatabaseUser, Commission } from '@/types';
 
 interface ReferralItem {
   id: number;
@@ -70,21 +71,20 @@ export default function AdminReferralsPage() {
       ]);
       
       // Combine referral data with user data
-      const referralsList = referralsData.data?.recent_referrals || [];
       const commissions = referralsData.data?.commission_history || [];
       const users = usersData.data?.users || [];
       
       // Create comprehensive referral list
       const allReferrals = users
-        .filter(u => u.referred_by)
-        .map(u => ({
+        .filter((u: DatabaseUser) => u.referred_by)
+        .map((u: DatabaseUser) => ({
           id: u.id,
-          user_id: users.find(ref => ref.referral_code === u.referred_by)?.id || 0,
-          username: users.find(ref => ref.referral_code === u.referred_by)?.username || 'Unknown',
+          user_id: users.find((ref: DatabaseUser) => ref.referral_code === u.referred_by)?.id || 0,
+          username: users.find((ref: DatabaseUser) => ref.referral_code === u.referred_by)?.username || 'Unknown',
           referred_user: u.username,
           referred_email: u.email,
           referral_code: u.referred_by,
-          reward_amount: commissions.find(c => c.external_id === u.id)?.amount || 0,
+          reward_amount: commissions.find((c: Commission) => c.external_id === u.id)?.amount || 0,
           total_deposits: u.total_deposits || 0,
           created_at: u.created_at
         }));

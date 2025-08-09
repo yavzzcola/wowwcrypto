@@ -7,7 +7,7 @@ interface DashboardHeaderProps {
   user?: {
     username: string;
     email: string;
-  };
+  } | null;
 }
 
 export default function DashboardHeader({ user }: DashboardHeaderProps) {

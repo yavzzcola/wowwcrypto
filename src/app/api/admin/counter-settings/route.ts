@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json<ApiResponse>({
       success: true,
       message: 'Counter settings retrieved successfully',
-      settings: settings
+      data: { settings: settings }
     });
 
   } catch (error) {

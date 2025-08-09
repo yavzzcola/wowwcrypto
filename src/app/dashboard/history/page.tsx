@@ -484,13 +484,13 @@ export default function HistoryPage() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm font-medium text-white">
                             {item.source === 'payment' && 'received_amount' in item && item.received_amount > 0 
-                              ? `${parseFloat(item.received_amount.toString()).toFixed(8)} ${item.currency2 || 'BTC'}`
-                              : `${parseFloat(item.amount.toString()).toFixed(8)} ${item.currency2 || item.currency || coinSymbol}`
+                              ? `${parseFloat(item.received_amount.toString()).toFixed(8)} ${(item as any).currency2 || 'BTC'}`
+                              : `${parseFloat(item.amount.toString()).toFixed(8)} ${(item as any).currency2 || item.currency || coinSymbol}`
                             }
                           </div>
-                          {item.source === 'payment' && 'tx_fee' in item && item.tx_fee && parseFloat(item.tx_fee) > 0 && (
+                          {item.source === 'payment' && 'tx_fee' in item && (item as any).tx_fee && parseFloat((item as any).tx_fee.toString()) > 0 && (
                             <div className="text-xs text-gray-400">
-                              Fee: {parseFloat(item.tx_fee.toString()).toFixed(8)} {item.currency2 || 'BTC'}
+                              Fee: {parseFloat((item as any).tx_fee.toString()).toFixed(8)} {(item as any).currency2 || 'BTC'}
                             </div>
                           )}
                         </td>
@@ -513,9 +513,9 @@ export default function HistoryPage() {
                                   : `${item.type.charAt(0).toUpperCase() + item.type.slice(1)} Transaction`
                             }
                           </div>
-                          {item.source === 'payment' && 'address' in item && item.address && (
+                          {item.source === 'payment' && 'address' in item && (item as any).address && (
                             <div className="text-xs font-mono mt-1 text-blue-400">
-                              Wallet: {item.address}
+                              Wallet: {(item as any).address}
                             </div>
                           )}
                           {item.source === 'transaction' && item.external_id && (

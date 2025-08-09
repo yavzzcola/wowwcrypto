@@ -404,7 +404,7 @@ export default function AdminPaymentsPage() {
                     
                     {selectedPayment.referral_code && (
                       <div>
-                        <label className="text-sm text-gray-400">User's Referral Code</label>
+                        <label className="text-sm text-gray-400">User&apos;s Referral Code</label>
                         <div className="text-white font-mono bg-gray-800/50 p-2 rounded">{selectedPayment.referral_code}</div>
                       </div>
                     )}

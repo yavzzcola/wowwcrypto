@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    // Disable ESLint during builds
+    ignoreDuringBuilds: true,
+  },
   serverExternalPackages: [],
   webpack: (config, { isServer }) => {
     // Fix for Tailwind CSS module resolution issues

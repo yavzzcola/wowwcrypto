@@ -59,7 +59,7 @@ export interface WithdrawalRequest {
   crypto_address: string;
 }
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   message: string;
   data?: T;
@@ -89,4 +89,26 @@ export interface SystemStats {
   totalWithdrawals: number;
   currentSupply: number;
   maxSupply: number;
+}
+
+export interface DatabaseUser {
+  id: number;
+  username: string;
+  email: string;
+  balance: number;
+  referral_code: string;
+  referred_by?: string;
+  total_deposits?: number;
+  created_at: string;
+  role: string;
+}
+
+export interface Commission {
+  id: number;
+  external_id: number;
+  amount: number;
+}
+
+export interface DatabaseResult {
+  [key: string]: unknown;
 }
